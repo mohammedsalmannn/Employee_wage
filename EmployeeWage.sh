@@ -35,3 +35,30 @@ echo "one  day wages is  : $wages"
 echo "partime_wages is   : $partime_wages"
 echo  "one day wages including partime : $total"
 echo "  Monthly wages is   :$monthly_wages "
+
+#-------------------------------------------------------------------------------------------------
+
+isPartTime=
+isFullTime=2
+empRatePerHr=20
+totakSalary=0
+numWorkingDays=20
+for((day=1;day<=numWorkingDays;day++))
+do
+   empCheck=$((RANDOM%3))
+   case $emCheck in
+      $isFullTime)
+               empHrs=8
+            ;;
+         $isPartTime)
+            empHrs=4
+            ;;
+         *)
+         empHrs=0
+            ;;
+      esac
+
+      salary=$(($empHrs*$empRatePerHr));
+      totalSalary=$(($totalSalary+$salary));
+done
+echo "onday day  " $salary "20days salary  " $totalSalary
