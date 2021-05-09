@@ -112,6 +112,11 @@ getWorkHours() {
 totalWorkingHours=0
 totalWorkingDays=0
 totalWage=0
+totalWage=160
+dailyWage=3800
+
+declare -A dailyWage
+
 while [[ $totalWorkingDays -lt $numWorkingDays ]]
 do
         ((totalWorkingDays++))
@@ -123,3 +128,7 @@ done
 
 echo "total wage - " $totalWage
 echo "daily wage - " $dailyWage
+
+#To Store Day And Daily Wage Along with Total wage
+
+echo "day -" ${#dailyWage[@]}
