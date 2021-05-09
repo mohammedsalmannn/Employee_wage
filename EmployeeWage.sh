@@ -1,36 +1,37 @@
 #!/bin/bash
 present=1
 working_hrs=20
+working_days=20
 full_day=8
 partime_hrs=8
 num=$((RANDOM%2))
-
 if [ $num -eq 1 ]
 then
-         echo "empolye is present"
-         echo  " To find the daliy wages 1"
-         echo  "To find on the partime wages only press  2"
-         echo  " To find the full time wages pres 3"
-            read -p "enter the number" n
-            case $n in
-            1)
-                wages=$((working_hrs * full_day))
-            ;;
-            2)
-                partime_wages=$((partime_hrs * working_hrs))
-            ;;
-            3)
-                wages=$((working_hrs * full_day))
-                partime_wages=$((partime_hrs * working_hrs))
-            ;;
-            *)
-               echo "the employe is absent"
-            ;;
-            esac
+        echo "empolye is present"
 else
-      echo "employe is absent"
+         echo " absent"
+fi
+
+if [ $num -eq $present ]
+then
+      wages=$((working_hrs * full_day))
+      #echo "one  day wages is $wages"
+else
+      echo " absent"
+fi
+
+echo "Do u wnt prt time.... enter 1 for Yes..! 0 for No..!!"
+
+read -p "enter the number  :" num2
+if [ $num2 -eq 1 ]
+then
+      partime_wages=$((partime_hrs * working_hrs))
 fi
 total=$(($wages+$partime_wages))
+monthly_wages=$((total * working_days))
+echo $monthly_wages
+
 echo "one  day wages is  : $wages"
 echo "partime_wages is   : $partime_wages"
-echo "tatal wages is    : $total"
+echo  "one day wages including partime : $total"
+echo "  Monthly wages is   :$monthly_wages "
